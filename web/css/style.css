@@ -1,0 +1,55 @@
+/* Import Icon fonts and web font */
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,700";
+/* Colors declarations */
+.wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -250px 0 0 -200px;
+  width: 400px;
+  height: 400px;
+  background-color: #1F222A;
+  border-radius: 7px;
+  text-align: center;
+}
+.wrapper h1 {
+  font-weight: 300;
+  padding-bottom: 1em;
+}
+
+body {
+  color: #eee;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #1F222A;
+}
+
+.temperature {
+  padding: 40px 0px;
+  font-size: 6em;
+  transition: color 0.5s ease;
+}
+.temperature h2 {
+  display: inline;
+  color: #eee;
+  font-weight: 300;
+}
+.temperature h2 span.degree-symbol {
+  display: inline-block;
+  margin: 0px 15px;
+  font-size: 0.6em;
+  vertical-align: top;
+}
+.temperature h2 span.celcius {
+  display: inline-block;
+  margin: 10px 0px 0px 15px;
+  font-size: 0.3em;
+  vertical-align: top;
+}
+
+.minmax span:first-child {
+  margin-right: 30px;
+}
+
+.minmax span:last-child {
+  margin-left: 30px;
+}
