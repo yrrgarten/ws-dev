@@ -50,12 +50,12 @@ connection.onopen = function (session, details) {
 function main (session) {
    // subscribe to temperature event
 
-   var onCounter = function(args) {
-     console.log('counter is', args[0]);
-     document.getElementById('temp_act').textContent = args[0];
+   var temp_act = function(args) {
+     console.log('counter is', args[0].toLocaleString(undefined, { maximumFractionDigits: 2 }));
+     document.getElementById('temp_act').textContent = args[0].toLocaleString(undefined, { maximumFractionDigits: 2 });
    }
 
-  session.subscribe("de.yrrgarten.oncounter", onCounter);
+  session.subscribe("de.yrrgarten.temp_act", temp_act);
 
 }
 
