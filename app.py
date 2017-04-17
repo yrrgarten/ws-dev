@@ -1,7 +1,7 @@
-from autobahn.twisted.wamp import ApplicationSession
+from autobahn.twisted.wamp import ApplicationSession, ApplicationRunner
 from autobahn.twisted.util import sleep
 from twisted.internet.defer import inlineCallbacks
-import get_temp
+import get_temp, config
 
 class MyComponent(ApplicationSession):
     @inlineCallbacks
@@ -25,3 +25,14 @@ class MyComponent(ApplicationSession):
 
             #self.publish(u'de.yrrgarten.temp_act', temp)
             yield sleep(1)
+
+if __name__ == '__main__':
+    runner = ApplicationRunner(
+        url=u"ws://" + config.mycrossbar['host'] + ":8080/ws",
+        realm=u"aquarasp",
+        extra=dict(
+            max_events=5000,  # [A] pass in additional configuration
+        ),
+    )
+    print(runner.log)
+    runner.run(MyComponent)
