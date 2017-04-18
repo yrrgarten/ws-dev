@@ -11,7 +11,7 @@ class MyComponent(ApplicationSession):
         temp, temp_t  = get_temp.read_temperature('/sys/bus/w1/devices/28-031600954bff/w1_slave')
         temp_act = temp
         self.publish(u'de.yrrgarten.temp_act', temp_act)
-        # select max(metered_temp), min(metered_temp) from metered_values where time_of_measurement >= now() - '1 day'::INTERVAL;
+        print("Initial temp pub")
 
         while True:
             temp, temp_t  = get_temp.read_temperature('/sys/bus/w1/devices/28-031600954bff/w1_slave')
@@ -23,7 +23,6 @@ class MyComponent(ApplicationSession):
                 temp_act = temp
                 self.publish(u'de.yrrgarten.temp_act', temp_act)
 
-            #self.publish(u'de.yrrgarten.temp_act', temp)
             yield sleep(1)
 
 if __name__ == '__main__':
